@@ -1,0 +1,26 @@
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.circle1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  max-width: 100%;
+}
+.circle2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+}
+.vector1 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 100%;
+}
