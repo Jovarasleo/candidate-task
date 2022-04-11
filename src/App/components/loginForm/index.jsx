@@ -20,7 +20,6 @@ function Form() {
 
   const [message, setMessage] = useState();
 
-  const getUser = useSelector((state) => auth.selectors.getUser(state));
   const getUserError = useSelector(auth.selectors.getUserError);
 
   const validateEmail = (email) => {
@@ -48,9 +47,6 @@ function Form() {
   };
   const LogIn = async () => {
     dispatch(auth.actions.setUser(name, password));
-    if (Object.keys(getUser).length !== 0) {
-      location.reload();
-    }
   };
   const handleLogin = (e) => {
     e.preventDefault();
@@ -88,7 +84,9 @@ function Form() {
         <PasswordKey />
       </Input>
       {message ? <p className="errorMessage">{message}</p> : null}
-      {getUserError && <p className="errorMessage">{getUserError}</p>}
+      {getUserError && !message && (
+        <p className="errorMessage">{getUserError}</p>
+      )}
       <Button
         className="form--button"
         buttonType="submit"
